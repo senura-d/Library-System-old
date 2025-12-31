@@ -10,7 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="046a5450-7f33-4ea2-870c-be536375f314" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/history.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,10 +56,11 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "Tomcat Server.History.jsp.executor": "Run",
     "Tomcat Server.Tomcat 8.5.96.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -192,7 +194,8 @@
       <workItem from="1767064798802" duration="1782000" />
       <workItem from="1767066833538" duration="1145000" />
       <workItem from="1767072116312" duration="10277000" />
-      <workItem from="1767101455123" duration="1141000" />
+      <workItem from="1767101455123" duration="2143000" />
+      <workItem from="1767163430422" duration="636000" />
     </task>
     <servers />
   </component>

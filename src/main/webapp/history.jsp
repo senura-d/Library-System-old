@@ -295,12 +295,17 @@
         </div>
 
         <div class="qr-section">
-            <h3>Digital ID</h3>
+            <h3>Member ID</h3>
+
             <p style="font-size:12px; color:#888;">Library Access & Borrowing</p>
 
-            <div class="qr-box">
-                <img src="QRServlet?id=M123" width="160" height="160" alt="QR Code">
-            </div>
+            <a href="QRServlet?id=M123" download="MemberID_M123.png" title="Click to download QR Code" style="text-decoration: none;">
+                <div class="qr-box">
+                    <img src="QRServlet?id=M123" width="160" height="160" alt="QR Code">
+                </div>
+            </a>
+
+            <span class="qr-download-hint">(Click QR to Download)</span>
 
             <p style="margin-top:15px; font-weight:bold; color:#4F46E5;">M123</p>
         </div>
