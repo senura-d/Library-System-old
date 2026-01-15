@@ -9,22 +9,99 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="046a5450-7f33-4ea2-870c-be536375f314" name="Changes" comment="Removed extra files and updated HistoryServlet">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
+    <list default="true" id="046a5450-7f33-4ea2-870c-be536375f314" name="Changes" comment="Final code cleanup and added database script">
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/AddBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/AdminAuthServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/AdminManagerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/AdminRegisterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/AdminServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/DeleteBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/DigitalBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/PdfViewerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/controller/RegistrationServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/model/DigitalBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/model/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/model/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/model/PhysicalBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/java/com/library/model/StudentMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/admin/add_book.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/admin/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/admin/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/admin/super_admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/book_details.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/member_books.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/member_home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/read_book.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member 2 and 5/src/main/webapp/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/AddBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/AdminAuthServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/AdminManagerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/AdminRegisterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/AdminServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/DeleteBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/DigitalBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/PdfViewerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/controller/RegistrationServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/model/DigitalBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/model/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/model/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/model/PhysicalBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/java/com/library/model/StudentMember.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/admin/add_book.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/admin/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/admin/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/admin/super_admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/book_details.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/member_books.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/member_home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/read_book.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member2and5/src/main/webapp/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/AddBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/AdminAuthServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/AdminManagerServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/AdminRegisterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/AdminServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/DeleteBookServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/SearchServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/model/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/model/SearchResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/add_book.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/super_admin.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/QRServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/QRServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/HistoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/HistoryServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/IssueBookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/IssueBookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/ProfileImageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/ProfileImageServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/RegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/UpdateProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/UpdateProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/model/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/model/StudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/model/StudentMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/edit_profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/edit_profile.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/history.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/history.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/issue_book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/issue_book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
     </list>
@@ -42,6 +119,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/student-profile-history-qr" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -89,7 +171,7 @@
     "Tomcat Server.Tomcat 8.5.96.executor": "Run",
     "Tomcat Server.index.jsp.executor": "Run",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/demo/Library Management system/src/main/java/com/library/model",
@@ -318,6 +400,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Tomcat Server.index.jsp" />
+        <item itemvalue="Tomcat Server.index.jsp" />
       </list>
     </recent_temporary>
   </component>
@@ -347,7 +430,8 @@
       <workItem from="1768124184022" duration="10151000" />
       <workItem from="1768187596626" duration="3211000" />
       <workItem from="1768304897283" duration="5406000" />
-      <workItem from="1768365311828" duration="23030000" />
+      <workItem from="1768365311828" duration="29187000" />
+      <workItem from="1768440539276" duration="1177000" />
     </task>
     <task id="LOCAL-00001" summary="Removed extra files and updated HistoryServlet">
       <option name="closed" value="true" />
@@ -357,7 +441,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768308738885</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Final code cleanup and added database script">
+      <option name="closed" value="true" />
+      <created>1768391606444</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1768391606444</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +468,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed extra files and updated HistoryServlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed extra files and updated HistoryServlet" />
+    <MESSAGE value="Final code cleanup and added database script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final code cleanup and added database script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -385,6 +478,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/library/controller/HistoryServlet.java</url>
           <line>91</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/register.jsp</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
