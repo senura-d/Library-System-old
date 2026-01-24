@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-// This maps the URL "/member-dashboard" (hyphen) to this Java class
 @WebServlet("/member-dashboard")
 public class MemberDashboardServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 1. In the future, you can fetch book data from the database here.
+        // 1. In a real app, you would fetch books from the Database here.
+        //    For now, we will just forward to the design page.
 
-        // 2. Forward the user to the actual JSP file (MUST use underscore here to match filename)
+        // 2. Send the user to the JSP view
         request.getRequestDispatcher("member_dashboard.jsp").forward(request, response);
     }
 }

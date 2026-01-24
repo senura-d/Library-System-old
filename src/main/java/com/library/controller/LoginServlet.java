@@ -1,8 +1,9 @@
 package com.library.controller;
 
-import com.library.dao.DBConnection;
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.servlet.ServletException;
@@ -14,48 +15,63 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String u = request.getParameter("username");
-        String p = request.getParameter("password");
 
-        try (Connection con = DBConnection.getConnection()) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-            // 1. CHECK MEMBERS TABLE (Student Login)
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM members WHERE member_id=? AND password_hash=?");
-            ps.setString(1, u);
-            ps.setString(2, p);
+        String email = request.getParameter("email");
+        String pass = request.getParameter("password");
+
+        String hashedPassword = hashPassword(pass);
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // UPDATED PASSWORD: using "Askme458"
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/library_db", "root", "Askme458");
+
+            // Inside LoginServlet.java
+            String sql = "SELECT * FROM admins WHERE username = ? AND password_hash = ?";
+// Note: In a real app, you should hash the input password before checking,
+// but for now, check if they are storing plain text or hashes.
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, hashedPassword);
+
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+                // Success: Save user info to session
                 HttpSession session = request.getSession();
-                session.setAttribute("memberId", rs.getString("member_id"));
-                session.setAttribute("memberName", rs.getString("full_name"));
-                session.setAttribute("memberEmail", rs.getString("email"));
-                response.sendRedirect("member_dashboard.jsp");
+                session.setAttribute("userEmail", email);
+                session.setAttribute("userName", rs.getString("full_name"));
 
+                // Go to Admin page
+                response.sendRedirect("member_home.jsp");
             } else {
-                // 2. CHECK ADMINS TABLE (Admin Login)
-                PreparedStatement ps2 = con.prepareStatement("SELECT * FROM admins WHERE username=? AND password_hash=?");
-                ps2.setString(1, u);
-                ps2.setString(2, p);
-                ResultSet rs2 = ps2.executeQuery();
-
-                if (rs2.next()) {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("adminUser", u);
-
-                    // Fetch real role (e.g., 'SUPER_ADMIN') and save as 'adminRole'
-                    String dbRole = rs2.getString("role");
-                    session.setAttribute("adminRole", dbRole);
-
-                    response.sendRedirect("admin/dashboard.jsp");
-                } else {
-                    response.sendRedirect("login.jsp?error=Invalid Credentials");
-                }
+                // Failure: Go back to login with error
+                request.setAttribute("errorMessage", "Invalid Email or Password");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
+            con.close();
+
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("login.jsp?error=System Error");
+        }
+    }
+
+    private String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                hexString.append(String.format("%02x", b));
+            }
+            return hexString.toString();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

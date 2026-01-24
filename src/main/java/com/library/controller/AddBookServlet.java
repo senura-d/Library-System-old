@@ -13,34 +13,27 @@ import java.sql.PreparedStatement;
 @WebServlet("/add-book")
 public class AddBookServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        // 1. Get data from form (Only what exists in your DB)
         String title = request.getParameter("title");
         String author = request.getParameter("author");
+        String isbn = request.getParameter("isbn");
         String category = request.getParameter("category");
-
-        // Default status is 'Available'
-        String status = "Available";
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
 
         try (Connection con = DBConnection.getConnection()) {
-            // 2. Insert into database (Using your new columns)
-            // Note: We do NOT insert 'quantity' or 'isbn' anymore
-            String sql = "INSERT INTO books (title, author, category, status) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO books (title, author, isbn, category, quantity, available_quantity) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, title);
             ps.setString(2, author);
-            ps.setString(3, category);
-            ps.setString(4, status);
+            ps.setString(3, isbn);
+            ps.setString(4, category);
+            ps.setInt(5, quantity);
+            ps.setInt(6, quantity); // Initially, available = total
 
             ps.executeUpdate();
-
-            // Success: Go back to dashboard with success message
-            response.sendRedirect(request.getContextPath() + "/admin/dashboard?msg=BookAdded");
-
+            response.sendRedirect("admin/dashboard.jsp?msg=BookAdded");
         } catch (Exception e) {
             e.printStackTrace();
-            // Failure: Stay on page with error
-            response.sendRedirect(request.getContextPath() + "/admin/add_book.jsp?error=Failed");
+            response.sendRedirect("admin/add_book.jsp?error=Failed");
         }
     }
 }

@@ -2,7 +2,6 @@ package com.library.controller;
 
 import com.library.dao.DBConnection;
 import com.library.model.Book;
-import com.library.model.PhysicalBook;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,18 +21,20 @@ public class BookListServlet extends HttpServlet {
         List<Book> bookList = new ArrayList<>();
 
         try (Connection con = DBConnection.getConnection()) {
+
             String sql = "SELECT * FROM books";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                // Using PhysicalBook because Book is abstract
-                bookList.add(new PhysicalBook(
-                        rs.getInt("book_id"),
-                        rs.getString("title"),
-                        rs.getString("author"),
-                        rs.getString("category"),
-                        5, 0 // Default values for copies
+                // 🔴 THE FIX: We are now sending EXACTLY 5 arguments to match your Book.java
+                bookList.add(new Book(
+                        rs.getInt("book_id"),       // 1. ID
+                        rs.getString("title"),      // 2. Title
+                        rs.getString("author"),     // 3. Author
+                        rs.getString("category"),   // 4. Category
+                        rs.getString("status")      // 5. Status
+                        // ❌ REMOVED: rs.getInt("quantity") <- This was the 6th item causing the error!
                 ));
             }
         } catch (Exception e) {
@@ -41,7 +42,6 @@ public class BookListServlet extends HttpServlet {
         }
 
         request.setAttribute("bookList", bookList);
-        // Ensure this points to your actual admin page
         request.getRequestDispatcher("/admin/admin.jsp").forward(request, response);
     }
 }

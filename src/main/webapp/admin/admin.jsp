@@ -3,70 +3,59 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Manage Books - Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Manage Books - UpBooks</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- COPYING YOUR DASHBOARD STYLES SO IT LOOKS UNIFORM --- */
+        /* Reusing global styles for consistency */
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background-color: #1e1e1e; color: #ecf0f1; display: flex; height: 100vh; overflow: hidden; }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); height: 100vh; display: flex; }
 
-        /* Sidebar */
-        .sidebar { width: 260px; background-color: #252525; display: flex; flex-direction: column; padding: 30px; border-right: 1px solid #333; }
-        .brand { font-size: 20px; font-weight: 700; color: #ffffff; margin-bottom: 50px; }
-        .brand span { color: #e74c3c; }
+        /* SIDEBAR (Copy of Dashboard Sidebar) */
+        .sidebar { width: 280px; background: white; padding: 30px; display: flex; flex-direction: column; box-shadow: 5px 0 30px rgba(0,0,0,0.05); }
+        .brand { font-size: 24px; font-weight: 800; color: #2d3436; margin-bottom: 50px; }
+        .brand span { color: #6c5ce7; }
+        .menu-item { display: flex; align-items: center; padding: 15px 20px; color: #b2bec3; text-decoration: none; font-weight: 600; border-radius: 15px; margin-bottom: 10px; transition: 0.3s; }
+        .menu-item:hover { background: #f5f6fa; color: #6c5ce7; }
+        .menu-item.active { background: #6c5ce7; color: white; box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3); }
+        .menu-icon { margin-right: 15px; font-size: 18px; }
 
-        .menu-item { text-decoration: none; color: #95a5a6; padding: 15px; margin-bottom: 8px; border-radius: 8px; font-size: 14px; font-weight: 600; display: flex; align-items: center; transition: all 0.3s; }
-        .menu-item:hover { background: rgba(231, 76, 60, 0.1); color: #e74c3c; }
-        .menu-item.active { background-color: #e74c3c; color: white; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
-        .menu-icon { margin-right: 15px; width: 20px; text-align: center; }
-        .logout-btn { margin-top: auto; color: #e74c3c; border: 1px solid #e74c3c; text-align: center; padding: 12px; border-radius: 8px; transition: 0.3s; }
-        .logout-btn:hover { background: #e74c3c; color: white; }
+        /* CONTENT */
+        .main-content { flex: 1; padding: 50px; overflow-y: auto; }
+        .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+        h1 { font-size: 28px; font-weight: 800; color: #2d3436; }
 
-        /* Main Content */
-        .main-content { flex: 1; padding: 40px; overflow-y: auto; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        h1 { font-size: 28px; font-weight: 700; }
+        /* BUTTONS */
+        .btn-add { background: #6c5ce7; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3); transition: 0.2s; }
+        .btn-add:hover { transform: translateY(-2px); }
 
-        /* Table Design */
-        .table-container { background-color: #2d2d2d; padding: 20px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th { text-align: left; padding: 15px; color: #95a5a6; border-bottom: 1px solid #444; font-size: 14px; }
-        td { padding: 15px; border-bottom: 1px solid #333; color: white; font-size: 14px; }
+        /* MODERN TABLE */
+        .table-container { background: white; padding: 10px; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 20px; color: #b2bec3; font-size: 12px; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid #f5f6fa; }
+        td { padding: 20px; color: #2d3436; font-size: 14px; font-weight: 600; border-bottom: 1px solid #f5f6fa; }
         tr:last-child td { border-bottom: none; }
-        tr:hover { background-color: #383838; }
 
-        .status-badge { padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-        .status-available { background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; }
-        .status-issued { background-color: rgba(231, 76, 60, 0.2); color: #e74c3c; }
+        /* STATUS BADGES */
+        .badge { padding: 8px 15px; border-radius: 50px; font-size: 12px; font-weight: 700; }
+        .badge-available { background: #e0f7fa; color: #00cec9; }
+        .badge-borrowed { background: #fab1a0; color: #d63031; }
 
-        .add-btn { background-color: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px; font-weight: 600; }
-        .add-btn:hover { background-color: #c0392b; }
+        .btn-delete { color: #d63031; text-decoration: none; font-size: 12px; padding: 5px 10px; background: #fff0f0; border-radius: 10px; }
+        .btn-delete:hover { background: #d63031; color: white; }
     </style>
 </head>
 <body>
-
     <div class="sidebar">
-        <div class="brand">🛡️ Admin<span>Panel</span></div>
-
-        <a href="${pageContext.request.contextPath}/admin/dashboard" class="menu-item">
-            <span class="menu-icon">📊</span> Overview
-        </a>
-
-        <a href="${pageContext.request.contextPath}/manage-books" class="menu-item active">
-            <span class="menu-icon">📚</span> Manage Books
-        </a>
-
-        <a href="${pageContext.request.contextPath}/manage-rooms" class="menu-item">
-            <span class="menu-icon">🏢</span> Rooms
-        </a>
-
-        <a href="${pageContext.request.contextPath}/logout" class="menu-item logout-btn">Log Out</a>
+        <div class="brand">⚡ Up<span>Books</span></div>
+        <a href="admin/dashboard.jsp" class="menu-item"><span class="menu-icon">📊</span> Dashboard</a>
+        <a href="#" class="menu-item active"><span class="menu-icon">📚</span> Manage Books</a>
+        <a href="manage-rooms" class="menu-item"><span class="menu-icon">🏢</span> Study Rooms</a>
     </div>
 
     <div class="main-content">
-        <div class="header">
-            <h1>Manage Books</h1>
-            <a href="${pageContext.request.contextPath}/admin/add_book.jsp" class="add-btn">+ Add New Book</a>
+        <div class="header-row">
+            <h1>Book Inventory</h1>
+            <a href="admin/add_book.jsp" class="btn-add">+ Add Book</a>
         </div>
 
         <div class="table-container">
@@ -74,16 +63,17 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
+                        <th>Book Title</th>
                         <th>Author</th>
                         <th>Category</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
                         List<Book> books = (List<Book>) request.getAttribute("bookList");
-                        if (books != null && !books.isEmpty()) {
+                        if (books != null) {
                             for (Book b : books) {
                     %>
                     <tr>
@@ -92,25 +82,23 @@
                         <td><%= b.getAuthor() %></td>
                         <td><%= b.getCategory() %></td>
                         <td>
-                            <span class="status-badge <%= "Available".equalsIgnoreCase(b.getStatus()) ? "status-available" : "status-issued" %>">
-                                <%= b.getStatus() %>
-                            </span>
+                            <% if("Available".equals(b.getStatus())) { %>
+                                <span class="badge badge-available">Available</span>
+                            <% } else { %>
+                                <span class="badge badge-borrowed">Out</span>
+                            <% } %>
+                        </td>
+                        <td>
+                            <a href="delete-book?id=<%= b.getId() %>" class="btn-delete">Delete</a>
                         </td>
                     </tr>
-                    <%
-                            }
-                        } else {
-                    %>
-                    <tr>
-                        <td colspan="5" style="text-align: center; color: #7f8c8d; padding: 30px;">
-                            No books found in the database.
-                        </td>
-                    </tr>
+                    <%      }
+                        } else { %>
+                    <tr><td colspan="6" style="text-align:center; padding: 40px; color: #b2bec3;">No books found.</td></tr>
                     <% } %>
                 </tbody>
             </table>
         </div>
     </div>
-
 </body>
 </html>

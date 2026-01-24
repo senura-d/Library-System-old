@@ -21,12 +21,10 @@ public class DashboardServlet extends HttpServlet {
 
         try (Connection con = DBConnection.getConnection()) {
 
-            // ... inside doGet ...
+            // 1. Count Total Books
             PreparedStatement ps1 = con.prepareStatement("SELECT COUNT(*) FROM books");
             ResultSet rs1 = ps1.executeQuery();
-            if (rs1.next()) totalBooks = rs1.getInt(1); // This line puts the number in!
-// ...
-            request.setAttribute("totalBooks", totalBooks);
+            if (rs1.next()) totalBooks = rs1.getInt(1);
 
             // 2. Count Members
             PreparedStatement ps2 = con.prepareStatement("SELECT COUNT(*) FROM members");

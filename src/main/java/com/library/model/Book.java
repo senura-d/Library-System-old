@@ -1,11 +1,11 @@
 package com.library.model;
 
-public abstract class Book {
-    protected int id;
-    protected String title;
-    protected String author;
-    protected String category;
-    protected String status;
+public class Book {
+    private int id;
+    private String title;
+    private String author;
+    private String category;
+    private String status;
 
     public Book(int id, String title, String author, String category, String status) {
         this.id = id;
@@ -14,8 +14,6 @@ public abstract class Book {
         this.category = category;
         this.status = status;
     }
-
-    public abstract boolean isAvailable();
 
     public int getId() { return id; }
     public String getTitle() { return title; }

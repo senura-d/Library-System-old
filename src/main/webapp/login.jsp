@@ -124,24 +124,6 @@
         }
         .quote-text { font-size: 18px; font-weight: 600; font-style: italic; margin-bottom: 15px; line-height: 1.5; }
         .quote-author { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
-        /* Add this inside the <style> tag in login.jsp */
-        .btn-login {
-            width: 100%;
-            padding: 14px;
-            background-color: #4a90e2; /* Nice Blue Color */
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            margin-top: 15px;
-        }
-
-        .btn-login:hover {
-            background-color: #357abd; /* Darker Blue on Hover */
-        }
 
     </style>
 </head>
@@ -159,19 +141,16 @@
                 </div>
             <% } %>
 
-            <form action="${pageContext.request.contextPath}/login" method="post">
-
-                <div class="input-group">
-                    <label>Username or Email</label>
-                    <input type="text" name="username" placeholder="Enter student ID or Email" required>
+            <form action="login" method="post">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Enter username" required>
                 </div>
-
-                <div class="input-group">
+                <div class="form-group">
                     <label>Password</label>
-                    <input type="password" name="password" placeholder="........" required>
+                    <input type="password" name="password" placeholder="••••••••" required>
                 </div>
-
-                <button type="submit" class="btn-login">Sign In</button>
+                <button type="submit" class="btn-submit">Sign In</button>
             </form>
 
             <div class="links">
