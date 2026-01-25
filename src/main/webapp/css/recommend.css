@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Management UI</title>
+
+<style>
+
+:root {
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --color-indigo-600: #4f46e5;
+  --color-indigo-900: #312e81;
+
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-700: #047857;
+
+  --color-rose-500: #f43f5e;
+  --color-rose-700: #be123c;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-hover: 0 10px 25px rgba(0,0,0,0.15);
+
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-slate-50);
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+
+.header {
+  background: white;
+  border-bottom: 1px solid var(--color-slate-200);
+  position: sticky;
+  top: 0;
+}
+
+.header-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.main-content {
+  max-width: 1100px;
+  margin: auto;
+  padding: 32px 16px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--color-slate-900);
+  color: white;
+}
+
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+
+.book-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-slate-200);
+  transition: 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.book-content {
+  padding: 20px;
+}
+
+.book-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.book-author {
+  color: var(--color-slate-500);
+  margin-bottom: 16px;
+}
+
+/* ===== STATUS ===== */
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+}
+
+.available {
+  background: var(--color-emerald-500);
+}
+
+.unavailable {
+  background: var(--color-rose-500);
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 50px;
+  color: var(--color-slate-400);
+}
+</style>
+</head>
+
+<body>
+
+<div class="app-container">
+
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-text">📚 My Library</div>
+      <button class="button button-primary">Add Book</button>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <div class="page-header">
+      <h2>Available Books</h2>
+    </div>
+
+    <div class="book-grid">
+
+      <div class="book-card">
+        <div class="book-content">
+          <div class="book-title">Java Programming</div>
+          <div class="book-author">James Gosling</div>
+          <div class="status">
+            <div class="dot available"></div>
+            Available
+          </div>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-content">
+          <div class="book-title">Web Development</div>
+          <div class="book-author">Tim Berners-Lee</div>
+          <div class="status">
+            <div class="dot unavailable"></div>
+            Unavailable
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      Library Management System © 2026
+    </div>
+
+  </main>
+
+</div>
+
+</body>
+</html>
